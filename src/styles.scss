@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'oswald-light';
+  src: url("src/assets/font/oswald-light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'oswald-regualr';
+  src: url("src/assets/font/oswald-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'oswald-bold';
+  src: url("src/assets/font/oswald-bold.ttf") format("truetype");
+}
+
+$font-regular: 'oswald-regular', monospace;
+$font-light: 'oswald-light', monospace;
+$font-bold: 'oswald-bold', monospace;
+
+$color-primary:#1B1D1B;
+$color-secondary:#A9A9A9;
+$color-accent:#FFD301;
+
+
+html {
+  font-size: 62.5%; // root font size 1rem=10px 10px/16px = 62.5%;
+  font-family:$font-regular;
+  // nice light grey
+  background: #ececec;
+  color: $color-primary;
+  line-height: 1.5;
+}
+
+.title{
+  font-family: $font-bold;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  border-bottom: 1.6rem solid black;
+  padding: 1.6rem 0;
+  margin-bottom: 1.6rem;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  font-size: 1.2rem;
+  
+  &__header {
+    cursor: pointer;
+    padding: 1.2rem;
+    transition: all 0.4s ease-in-out;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.3rem solid;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .open class with JS), and when you move the mouse over it (hover) */
+  .open, &__header:hover {
+    background-color: $color-secondary;
+  }
+  
+  .svg-rotate__icon {
+    transition: all 0.4s ease-in-out;
+    padding: 1rem;
+    
+  }
+  .open .svg-rotate__icon{
+    transform: rotate(45deg);
+  }
+  
+  &__question::before{
+    content: 'Q'attr(data-id);
+    font-family:$font-bold;
+    font-size: 2.4rem;
+    margin: 0 2.4rem 0 0;
+  }
+  
+  &__question{
+    display:flex;
+    align-items: center;
+    font-family: $font-light;
+  }
+
+  /* Style the accordion panel. Note: hidden by default */
+  &__answer {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  
+  &__icon{
+    background-color: $color-accent;
+  }
+}
+
+@media (min-width: 40em) {
+  .title {
+      font-size: 3.5rem;
+  }
+}
+
+
+
